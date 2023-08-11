@@ -1,0 +1,4 @@
+app.get('/set-cookie', (req, res) => {
+  res.cookie('session', 'example-session-value', { httpOnly: true });
+  res.send('HTTP-only cookie set');
+});

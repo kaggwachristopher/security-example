@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Content Security Policy Example</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://trusted-scripts.com;">
+<!-- 'unsafe-inline' -->
+</head>
+<body>
+  <h1>Content Security Policy Example</h1>
+  <p>This is a simple example of using Content Security Policy.</p>
+  
+  <!-- Allowed external script -->
+  <script src="https://trusted-scripts.com/allowed-script.js"></script>
+
+  <!-- Blocked inline script -->
+  <script>
+    console.log("This inline script will be blocked by the Content Security Policy.");
+  </script>
+</body>
+</html>
