@@ -1,0 +1,26 @@
+// Receive user login input
+
+string query = $"SELECT COUNT(*) FROM Users WHERE 
+                Username = '{username}' AND Password = '{password}'
+                ";
+
+SqlCommand command = new SqlCommand(query, connection);
+
+// Login successful if there is a user with the input
+
+// Attackers input
+' OR '1'='1
+
+// Resulting query
+SELECT COUNT(*) FROM Users WHERE Username = '' OR '1'='1'
+                            AND Password = '' OR '1'='1' 
+
+// Guaranteed login successful
+
+// Good Code
+string query = "SELECT COUNT(*) FROM Users WHERE Username = @Username
+                 AND Password = @Password";
+
+SqlCommand command = new SqlCommand(query, connection);
+command.Parameters.AddWithValue("@Username", username);
+command.Parameters.AddWithValue("@Password", password);

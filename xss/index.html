@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ignatius' application</title>
+</head>
+<body>
+    <h1>Welcome, <script>
+        var name = decodeURIComponent(window.location.search.substring(1).split("=")[1]);
+        document.write(name);
+    </script></h1>
+    <a href="?name=Walter">Go to Walters page</a>
+</body>
+</html>

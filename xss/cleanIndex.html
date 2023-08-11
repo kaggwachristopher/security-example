@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure HTML XSS Example</title>
+</head>
+<body>
+    <h1>Welcome, <span id="namePlaceholder"></span></h1>
+
+    <script>
+        // Function to sanitize user input
+        function sanitizeInput(input) {
+            // Replace potentially dangerous characters with their corresponding HTML entities
+            return input.replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;')
+                        .replace(/'/g, '&#39;');
+        }
+
+        // Get the 'name' parameter from the URL query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+
+        // Sanitize the 'name' parameter before rendering it in the HTML
+        const sanitizedName = sanitizeInput(name);
+        document.getElementById('namePlaceholder').innerText = sanitizedName;
+    </script>
+</body>
+</html>
